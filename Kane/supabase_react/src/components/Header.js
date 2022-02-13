@@ -8,13 +8,15 @@ function Header() {
 
 return (
     <HeaderContainer>
+        <Flexbox>
         <ShopName>
             <div>Yanas Knotart</div>
         </ShopName>
         <Searchbar>
-
+            <input placeholder='Shop durchsuchen'></input>
         </Searchbar>
         <ShoppingCart />
+        </Flexbox>
     </HeaderContainer>
 )
 }
@@ -23,17 +25,39 @@ export default Header
 
 const HeaderContainer = styled.div`
     grid-area: Header;
-    background-color: #113044;
-    display: flex;
+    background-color: white;
+    position: sticky;
+    text-align: center;
     justify-content: center;
-    align-items: center;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    z-index:99;
+    margin: auto;
+`
+
+const Flexbox = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 `
 
 const ShopName = styled.div`
-background-color: #113044;
-    color: black
+    background color: grey;
+    display: flex;
+    justify-content: left;
+    margin-left: 20px;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 35px;
+    width: 33%;
 `
 
 const Searchbar = styled.div`
-background-color: #113044;
+    background color: grey;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 33%;
 `

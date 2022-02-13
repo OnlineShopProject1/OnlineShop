@@ -16,5 +16,9 @@ function Main() {
     export default Main
 
     const MainContainer = styled.div`
-    grid-area: Main;
+        grid-area: Main;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     `

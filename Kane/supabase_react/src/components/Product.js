@@ -27,7 +27,7 @@ function Product() {
     const Picture = styled.div`
     `
     const Discriprion = styled.div`
-    color: black;
+        color: black;
     `
     const Stars = styled.div`
     `

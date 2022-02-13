@@ -8,11 +8,15 @@ function Footer() {
     return (
         <FooterContainer>
             <Links>
-                <i><b>Über Yanas Knotart</b></i>
-                <link>Datenschutzerklärung</link>
-                <link>Wiederrufsrecht</link>
-                <link>rel="Impressum" href="https://www.google.de/"</link>
+                <div><b>Über Yanas Knotart</b></div>
+                <div>Datenschutzerklärung</div>
+                <div>Wiederrufsrecht</div>
+                <div>Impressum</div>
             </Links>
+            <Column2></Column2>
+            <Column3></Column3>
+            <Column4></Column4>
+            <Column5></Column5>
             <SocialMedia>
                 <div>
                     Youtube
@@ -34,12 +38,23 @@ function Footer() {
     export default Footer
 
     const FooterContainer = styled.div`
-    grid-area: Footer;
+        grid-area: Footer;
+        background-color: orange;
+        display: flex;
     `
 
     const Links = styled.div`
-    color: black;
+        color: black;
     `
 
     const SocialMedia = styled.div`
+    `
+
+    const Column2 = styled.div`
+    `
+    const Column3 = styled.div`
+    `
+    const Column4 = styled.div`
+    `
+    const Column5 = styled.div`
     `

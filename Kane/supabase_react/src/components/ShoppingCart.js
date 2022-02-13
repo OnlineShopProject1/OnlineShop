@@ -7,7 +7,9 @@ function ShoppingCart() {
 
     return (
         <CartContainer>
-            
+            <Cart>
+                <div>Einkaufswagen</div>
+            </Cart>
         </CartContainer>
     )
     }
@@ -15,4 +17,16 @@ function ShoppingCart() {
     export default ShoppingCart
 
     const CartContainer = styled.div`
+        background-color: #fffff;
+        margin-right: 20px;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 33%;
+        text-align: right;
+        display: flex;
+        justify-content: right;
+    `
+
+    const Cart = styled.div`
     `
