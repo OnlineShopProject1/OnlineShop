@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { AiFillYoutube, AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
+import { FaPinterestSquare } from 'react-icons/fa';
+
 function Footer() {
 
 
@@ -13,22 +16,18 @@ function Footer() {
                 <div>Wiederrufsrecht</div>
                 <div>Impressum</div>
             </Links>
-            <Column2></Column2>
-            <Column3></Column3>
-            <Column4></Column4>
-            <Column5></Column5>
             <SocialMedia>
                 <div>
-                    Youtube
+                    <AiFillYoutube /> 
                 </div>
                 <div>
-                    Pinterest
+                    <FaPinterestSquare />
                 </div>
                 <div>
-                    Facebook
+                    <AiFillFacebook />
                 </div>
                 <div>
-                    Instagram
+                    <AiFillInstagram />
                 </div>
             </SocialMedia>
         </FooterContainer>
@@ -41,20 +40,25 @@ function Footer() {
         grid-area: Footer;
         background-color: orange;
         display: flex;
+        justify-content: center;
+        width: 100%;
+        
     `
 
     const Links = styled.div`
         color: black;
+        justify-content: left;
+        margin-left: 20px;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
     `
 
     const SocialMedia = styled.div`
-    `
-
-    const Column2 = styled.div`
-    `
-    const Column3 = styled.div`
-    `
-    const Column4 = styled.div`
-    `
-    const Column5 = styled.div`
+        display: flex;
+        margin-right: 20px;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: 20px;
+        font-size: 34px;
     `

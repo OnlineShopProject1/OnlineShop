@@ -4,10 +4,11 @@ const AppContext = createContext()
 
 const useAppContext = () => useContext(AppContext)
 
-function AppContextProvider() {
+function AppContextProvider({children}) {
 
     return  (
-        <AppContext.Provider>
+        <AppContext.Provider value={{}}>
+            {children}
         </AppContext.Provider>
     )
 }
