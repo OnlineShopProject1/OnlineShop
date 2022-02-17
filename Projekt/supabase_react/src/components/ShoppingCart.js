@@ -22,7 +22,7 @@ function ShoppingCart() {
         margin-left: auto;
         margin-top: auto;
         margin-bottom: auto;
-        width: 33%;
+        width: 25%;
         text-align: right;
         display: flex;
         justify-content: right;

@@ -11,16 +11,12 @@ import Category from './components/Category'
 import { Supabase } from './supabaseClient'
 
 
+
 import { AppContextProvider } from './appContext'
 
 function App() {
 
-  async function test() {
-  const { data, error } = await Supabase
-  .from('Produkte')
-  .select()
-  console.log(data)}
-  test()
+  
   return (
     <AppContextProvider>
       <AppContainer>

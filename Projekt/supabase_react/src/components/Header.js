@@ -51,7 +51,7 @@ const ShopName = styled.div`
     margin-top: auto;
     margin-bottom: auto;
     font-size: 35px;
-    width: 33%;
+    width: 25%;
 `
 
 const Searchbar = styled.div`
@@ -59,5 +59,5 @@ const Searchbar = styled.div`
     display: flex;
     justify-content: center;
     margin: auto;
-    width: 33%;
+    width: 50%;
 `

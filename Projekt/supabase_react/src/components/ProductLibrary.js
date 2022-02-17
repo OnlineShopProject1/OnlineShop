@@ -1,19 +1,32 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import Product from './Product'
 import { Supabase } from './../supabaseClient'
 
 function ProductLibrary () {
-    const {productId} = useParams();
-    const {products} = useContext(Supabase);
+    const [products, setProducts] = useState([]);
 
-    const product = products.for(let first in second) {third}
+    useEffect(() => {
+        async function test() {
+            const { data, error } = await Supabase
+            .from('Produkte')
+            .select()
+            console.log(data)
+            setProducts(data)
+        }
+            test()
+    
+      
+    }, [])
+    
+
+    
 
 
 
     return (
         <Test>
-
+            {products.map(product => <Product product={product} key={product.id} />)}
         </Test>
     )
 }
@@ -21,6 +34,8 @@ function ProductLibrary () {
 export default ProductLibrary;
 
 const Test = styled.div`
+display: flex;
+flex-direction: row;
 `
 
 
