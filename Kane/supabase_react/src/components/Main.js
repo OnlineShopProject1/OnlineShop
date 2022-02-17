@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Product from './Product.js'
+import ProductLibrary from './ProductLibrary'
 
 function Main() {
 
@@ -8,7 +9,7 @@ function Main() {
 
     return (
         <MainContainer>
-            <Product />
+            <ProductLibrary />
         </MainContainer>
     )
     }

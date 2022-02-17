@@ -1,30 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MdAddShoppingCart } from 'react-icons/md';
 
 
-function Product() {
+function Product({product}) {
 
 
 
     return (
         <ProductContainer>
             <Name>
-                <div>Blumenampel</div>
+                <div>{product.name}</div>
             </Name>
             <Produktbild>
-            <img 
-            src="https://i.etsystatic.com/27455117/r/il/cdb875/3166551303/il_794xN.3166551303_mm9d.jpg"
-            alt="Blumenampel"
-            />
+                <img src={product.produktbild}></img>
             </Produktbild>
             <Kurztext>
-                <div>Testbeschreibung</div>
+                {product.kurztext}
             </Kurztext>
             <Sterne>
+                <div>{product.sterne}</div>
             </Sterne>
             <Preis>
+            <div>{product.preis}</div>
             </Preis>
             <AddShoppingCart>
+                <div><MdAddShoppingCart /></div>
             </AddShoppingCart>
         </ProductContainer>
     )
@@ -33,6 +34,14 @@ function Product() {
     export default Product
     
     const ProductContainer = styled.div`
+        //float: left;
+        width: 50%;
+        padding: 20px;
+        background: #eee;
+        //box-sizing: border-box;
+        border-style: solid;
+        margin: 5px;
+     
     `
     const Name = styled.div`
     
@@ -45,6 +54,10 @@ function Product() {
     const AddShoppingCart = styled.div`
     `
     const Produktbild = styled.div`
+    img {
+        width: auto; 
+        height: 100px; 
+       }
     `
 
     const Preis = styled.div`
