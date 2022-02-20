@@ -135,23 +135,29 @@ function Product({product}) {
     //margin-bottom: 10px;
     //-----------------------------------------
     
-          display: grid;
-          grid-template-rows: repeat(2, 1fr);
-          grid-template-columns: repeat(2, 1fr);
-          grid-auto-flow: column;
-          grid-gap: 10px;
+          display: block;
           
-            ${Box} {
+
+          @media screen and (min-width: 576px) {
+            FooterProductBox {
+              display: grid;
+              grid-template-rows: repeat(2, 1fr);
+              grid-template-columns: repeat(2, 1fr);
+              grid-auto-flow: column;
+              grid-gap: 10px;
+              }
+          
+            Box {
                 margin: 0;
                 font-style: bold;
                 }
-            ${Box}:nth-child(1),
-            ${Box}:nth-child(2)
+            Box:nth-child(1),
+            Box:nth-child(2)
             {
                 grid-column: span 6;
                 }
             
-            ${Box}:nth-child(3),
+            Box:nth-child(3),
             {
                 grid-column: span 12;
                 }
