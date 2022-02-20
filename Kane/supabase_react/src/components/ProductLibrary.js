@@ -36,6 +36,9 @@ export default ProductLibrary;
 const Test = styled.div`
 display: flex;
 flex-direction: row;
+border-style: solid;
+flex-wrap: wrap;
+//justify-content: stretch;
 `
 
 

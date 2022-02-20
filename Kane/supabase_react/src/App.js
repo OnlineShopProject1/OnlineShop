@@ -35,7 +35,7 @@ const AppContainer = styled.div`
   height: 100vh;
   display: grid; 
   grid-template-columns: 0.7fr 1fr 1fr 1fr 1fr 0.7fr; 
-  grid-template-rows: 40px 300px 1000px 1fr; 
+  grid-template-rows: 40px 300px 1fr 1fr; 
   gap: 0px 0px; 
   grid-template-areas: 
     "Header Header Header Header Header Header"
