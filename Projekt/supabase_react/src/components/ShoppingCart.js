@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 function ShoppingCart() {
 
 
@@ -26,7 +27,9 @@ function ShoppingCart() {
         text-align: right;
         display: flex;
         justify-content: right;
+        
     `
 
     const Cart = styled.div`
+
     `
