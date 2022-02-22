@@ -19,7 +19,7 @@ function Category() {
            <button>Kategorie C</button>
            </Column4>
            <Column5>
-           <button>Kategorie D</button>
+           <button>Filter löschen</button>
            </Column5>
            </Categorys>
         </CategoryContainer>
@@ -59,5 +59,9 @@ function Category() {
     `
     const Column5 = styled.div`
         margin: 15px;
+
+        button {
+            background-color: red;
+        }
     `
    

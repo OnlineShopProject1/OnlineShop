@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MdShoppingCart } from 'react-icons/md';
 
 
 function ShoppingCart() {
@@ -9,7 +10,7 @@ function ShoppingCart() {
     return (
         <CartContainer>
             <Cart>
-                <div>Einkaufswagen</div>
+                <MdShoppingCart />
             </Cart>
         </CartContainer>
     )
@@ -31,5 +32,5 @@ function ShoppingCart() {
     `
 
     const Cart = styled.div`
-
+    font-size: 34px;
     `
