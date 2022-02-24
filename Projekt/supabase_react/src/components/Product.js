@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import { MdAddShoppingCart } from 'react-icons/md';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
+import { Supabase } from './../supabaseClient'
+
+
 
 
 function Product({product}) {
@@ -15,8 +18,38 @@ function Product({product}) {
             
     
            
+        async function readCart() {
+
+            const { data, error } = await Supabase
+            .from('Einkaufswagen')
+            .select('id')
+            .eq('product_id', product.id)
+            
+            console.log(data)
+            if (data.length === 0)
+                addCart()
+            else
+                upgradeCart()
+        }
+            
         async function addCart() {
-            console.log(".")
+            
+            const { data, error } = await Supabase
+            .from('Einkaufswagen')
+            .insert([
+             { user_id: 100, product_id: product.id, Bestellanzahl: 1 }
+            ])
+        }
+
+         async function upgradeCart() {
+            
+            
+            const { data, error } = await Supabase
+            .from('Einkaufswagen')
+             .update({'Bestellanzahl': '2'})
+             .match({'product_id': product.id, 'Bestellanzahl': '1'})
+             
+            //console.log(product.id)
 
             // 1.  Eintrag in der Tabelle "Einkaufswagen" beim Klick machen.
             // 1a. Neueintrag, wenn Product ID noch nicht am identischen Tag bestellt wurde.
@@ -80,7 +113,7 @@ function Product({product}) {
                     
                     </Preis>
                     </Box>
-                    <Box onClick={addCart}>
+                    <Box onClick={readCart}>
                     <AddShoppingCart>
                         <MdAddShoppingCart />
                     </AddShoppingCart>
@@ -102,14 +135,14 @@ function Product({product}) {
         box-sizing: border-box;
         border-radius: 10px;
 
-        &--50 {
-            flex-basis: calc(50% - 20px);
-          }
+        //  &--50 {
+        //          flex-basis: calc(50% - 20px);
+        //     }
           
-          &--33 {
-            flex-basis: calc(33.33% - 20px);
-          }
-        }
+        //   &--33 {
+        //         flex-basis: calc(33.33% - 20px);
+        //     }
+       
      
     `
     const Name = styled.div`
