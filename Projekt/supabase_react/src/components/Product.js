@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { MdAddShoppingCart } from 'react-icons/md';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
@@ -8,30 +8,38 @@ import { Supabase } from './../supabaseClient'
 
 
 function Product({product}) {
-    //const [likes, setLikes] = useState(false)
+    const [aktuelleStueckzahl, setAktuelleStuekzahl] = useState()
 
-    const data = {product: product.sterne}
+    //const data = {product: product.sterne}
+    //var aktuelleStueckzahl = 0
     let sternestrg = ""
 
             for (let i=0;i<product.sterne;i++){sternestrg=sternestrg+"*"}
             for (let i=0;i<5-product.sterne;i++){sternestrg=sternestrg+"0"}
+ 
             
-    
-           
-        async function readCart() {
+        async function test3() {
+            
+            
+                // const blubb = aktuelleStueckzahl
+               console.log(aktuelleStueckzahl)
 
-            const { data, error } = await Supabase
-            .from('Einkaufswagen')
-            .select('id')
-            .eq('product_id', product.id)
-            
-            console.log(data)
-            if (data.length === 0)
-                addCart()
-            else
-                upgradeCart()
-        }
-            
+                if (aktuelleStueckzahl === 0)
+                    addCart()
+                else
+                    //aktuelleStueckzahl = blubb
+    
+                    //console.log(data)
+    
+                    upgradeCart()
+
+                //for (let i=0;i<4;i++){Gesamtsumme = Gesamtsumme + parseInt(aktuelleStueckzahl)}
+                //console.log(Gesamtsumme)
+                
+                
+        }    
+    
+    
         async function addCart() {
             
             const { data, error } = await Supabase
@@ -39,21 +47,23 @@ function Product({product}) {
             .insert([
              { user_id: 100, product_id: product.id, Bestellanzahl: 1 }
             ])
+            //console.log(aktuelleStueckzahl)
         }
 
          async function upgradeCart() {
             
-            
+            let neueStückzahl = parseInt(aktuelleStueckzahl)+1
             const { data, error } = await Supabase
+            
             .from('Einkaufswagen')
-             .update({'Bestellanzahl': '2'})
-             .match({'product_id': product.id, 'Bestellanzahl': '1'})
-             
-            //console.log(product.id)
-
-            // 1.  Eintrag in der Tabelle "Einkaufswagen" beim Klick machen.
+             .update({'Bestellanzahl': neueStückzahl})
+             .match({'product_id': product.id, 'Bestellanzahl': aktuelleStueckzahl})
+            
+            setAktuelleStuekzahl(neueStückzahl)
+            
+            
             // 1a. Neueintrag, wenn Product ID noch nicht am identischen Tag bestellt wurde.
-            // 1b. Upgrade/hochzählen des Eintrages für Product ID.
+            
             // 2.  Aktualisieren des Counters für Anzahl Produkte im Warenkorb.
 
             // console.log(data, "*")
@@ -73,10 +83,38 @@ function Product({product}) {
             //{product.sterne === 3 ? SterneStrg="***00" : ""}
             //{product.sterne === 4 ? SterneStrg="****0" : ""}
             //{product.sterne === 5 ? SterneStrg="*****" : ""}
+         }
             
-           
 
-     }
+     
+
+     
+        useEffect(() => {   
+            async function readCart() {
+    
+                const { data, error } = await Supabase
+                .from('Einkaufswagen')
+                .select()
+                .eq('product_id', product.id)
+                let test2 = data.map((todo) => (todo.Bestellanzahl))
+                //console.log(test2)
+               setAktuelleStuekzahl(test2)
+                
+            }
+            readCart();
+            }, [])  
+
+        //     function summeCart() {
+        //         let Summe = parseInt(aktuelleStueckzahl)
+        //         let Gesamtsumme = 0
+        //         console.log(Summe)
+               
+        //         //console.log(Gesamtsumme)
+        //     }   
+            
+        //    summeCart()
+    
+     
      
 
      return (
@@ -113,7 +151,7 @@ function Product({product}) {
                     
                     </Preis>
                     </Box>
-                    <Box onClick={readCart}>
+                    <Box onClick={test3}>
                     <AddShoppingCart>
                         <MdAddShoppingCart />
                     </AddShoppingCart>
