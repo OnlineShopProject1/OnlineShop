@@ -47,6 +47,7 @@ function Product({product}) {
             .insert([
              { user_id: 100, product_id: product.id, Bestellanzahl: 1 }
             ])
+            window.location.reload()  // AJAX als alternative ???
             //console.log(aktuelleStueckzahl)
         }
 
@@ -60,7 +61,7 @@ function Product({product}) {
              .match({'product_id': product.id, 'Bestellanzahl': aktuelleStueckzahl})
             
             setAktuelleStuekzahl(neueStückzahl)
-            
+            window.location.reload()  // AJAX als alternative ???
             
             // 1a. Neueintrag, wenn Product ID noch nicht am identischen Tag bestellt wurde.
             
