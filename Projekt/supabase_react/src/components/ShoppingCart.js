@@ -43,14 +43,27 @@ function ShoppingCart() {
         margin-bottom: auto;
         width: 25%;
         text-align: right;
+        align-items: center;
         display: flex;
         justify-content: right;
-        
     `
 
     const Cart = styled.div`
     font-size: 34px;
+    display: flex;
+    align-items: center;
+    
     `
 
     const AnzahlShoppingCart = styled.div`
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: rgb(239,74,58);
+    font-size: 20px;
+    font-weight: bold;
     `

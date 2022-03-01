@@ -15,7 +15,7 @@ function Footer() {
             <Links>
                 <div><b>Über Yanas Knotart</b></div>
                 <div>Datenschutzerklärung</div>
-                <div>Wiederrufsrecht</div>
+                <div>Widerrufsrecht</div>
                 <div>Impressum</div>
             </Links>
             <SocialMedia>

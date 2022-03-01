@@ -24,14 +24,14 @@ function Product({product}) {
                 // const blubb = aktuelleStueckzahl
                console.log(aktuelleStueckzahl)
 
-                if (aktuelleStueckzahl === 0)
-                    addCart()
+                if (aktuelleStueckzahl > 0 )
+                    upgradeCart()
                 else
                     //aktuelleStueckzahl = blubb
-    
+                    addCart()
                     //console.log(data)
     
-                    upgradeCart()
+                    
 
                 //for (let i=0;i<4;i++){Gesamtsumme = Gesamtsumme + parseInt(aktuelleStueckzahl)}
                 //console.log(Gesamtsumme)
