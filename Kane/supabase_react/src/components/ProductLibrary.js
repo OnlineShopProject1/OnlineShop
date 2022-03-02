@@ -11,6 +11,7 @@ function ProductLibrary () {
             const { data, error } = await Supabase
             .from('Produkte')
             .select()
+            .order('id')
             console.log(data)
             setProducts(data)
         }
@@ -36,8 +37,8 @@ export default ProductLibrary;
 const Test = styled.div`
 display: flex;
 flex-direction: row;
-border-style: solid;
-flex-wrap: wrap;
+//border-style: solid;
+//flex-wrap: wrap;
 //justify-content: stretch;
 `
 
