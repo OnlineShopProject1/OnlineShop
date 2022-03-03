@@ -3,23 +3,9 @@ import styled from 'styled-components'
 import { MdShoppingCart } from 'react-icons/md';
 import { Supabase } from './../supabaseClient'
 
-function ShoppingCart() {
-    const [aktuelleStueckzahl, setAktuelleStuekzahl] = useState()
+function ShoppingCart({aktuelleStueckzahl}) {
     
-    async function readSumme () {
-        let Gesamtsumme = 0
-
-        const { data, error } = await Supabase
-        .from('Einkaufswagen')
-        .select('Bestellanzahl')
-
-        data.map((todo) => (Gesamtsumme = Gesamtsumme + parseInt(todo.Bestellanzahl)))
-        
-        
-        setAktuelleStuekzahl(Gesamtsumme)
-        
-    }readSumme()
-
+      
 
     return (
         <CartContainer>

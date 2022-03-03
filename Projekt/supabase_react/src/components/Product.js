@@ -7,8 +7,8 @@ import { Supabase } from './../supabaseClient'
 
 
 
-function Product({product}) {
-    const [aktuelleStueckzahl, setAktuelleStuekzahl] = useState()
+function Product({product, setAktuelleStueckzahl, aktuelleStueckzahl}) {
+    const [aktuelleProduktStueckzahl, setAktuelleProduktStueckzahl] = useState()
 
     //const data = {product: product.sterne}
     //var aktuelleStueckzahl = 0
@@ -22,14 +22,15 @@ function Product({product}) {
             
             
                 // const blubb = aktuelleStueckzahl
-               console.log(aktuelleStueckzahl)
+              
 
-                if (aktuelleStueckzahl > 0 )
-                    upgradeCart()
+                if (aktuelleProduktStueckzahl > 0 )
+                    await upgradeCart()
                 else
                     //aktuelleStueckzahl = blubb
-                    addCart()
+                    await addCart()
                     //console.log(data)
+                setAktuelleStueckzahl(aktuelleStueckzahl+1)
     
                     
 
@@ -47,21 +48,21 @@ function Product({product}) {
             .insert([
              { user_id: 100, product_id: product.id, Bestellanzahl: 1 }
             ])
-            window.location.reload()  // AJAX als alternative ???
+            //window.location.reload()  // AJAX als alternative ???
             //console.log(aktuelleStueckzahl)
         }
 
          async function upgradeCart() {
             
-            let neueStückzahl = parseInt(aktuelleStueckzahl)+1
+            let neueStückzahl = parseInt(aktuelleProduktStueckzahl)+1
             const { data, error } = await Supabase
             
             .from('Einkaufswagen')
              .update({'Bestellanzahl': neueStückzahl})
-             .match({'product_id': product.id, 'Bestellanzahl': aktuelleStueckzahl})
+             .match({'product_id': product.id, 'Bestellanzahl': aktuelleProduktStueckzahl})
             
-            setAktuelleStuekzahl(neueStückzahl)
-            window.location.reload()  // AJAX als alternative ???
+            setAktuelleProduktStueckzahl(neueStückzahl)
+            //window.location.reload()  // AJAX als alternative ???
             
             // 1a. Neueintrag, wenn Product ID noch nicht am identischen Tag bestellt wurde.
             
@@ -85,6 +86,20 @@ function Product({product}) {
             //{product.sterne === 4 ? SterneStrg="****0" : ""}
             //{product.sterne === 5 ? SterneStrg="*****" : ""}
          }
+
+        //  async function readSumme () {
+        //     let Gesamtsumme = 0
+    
+        //     const { data, error } = await Supabase
+        //     .from('Einkaufswagen')
+        //     .select('Bestellanzahl')
+    
+        //     data.map((todo) => (Gesamtsumme = Gesamtsumme + parseInt(todo.Bestellanzahl)))
+            
+            
+        //     setAktuelleStueckzahl(Gesamtsumme)
+            
+        // }readSumme()
             
 
      
@@ -99,7 +114,7 @@ function Product({product}) {
                 .eq('product_id', product.id)
                 let test2 = data.map((todo) => (todo.Bestellanzahl))
                 //console.log(test2)
-               setAktuelleStuekzahl(test2)
+               setAktuelleProduktStueckzahl(test2)
                 
             }
             readCart();

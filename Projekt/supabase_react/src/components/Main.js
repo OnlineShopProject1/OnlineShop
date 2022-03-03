@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import Product from './Product.js'
 import ProductLibrary from './ProductLibrary'
 
-function Main() {
-
+function Main({setAktuelleStueckzahl, aktuelleStueckzahl}) {
+    
 
 
     return (
         <MainContainer>
-            <ProductLibrary />
+            <ProductLibrary setAktuelleStueckzahl={setAktuelleStueckzahl} aktuelleStueckzahl={aktuelleStueckzahl} />
         </MainContainer>
     )
     }
