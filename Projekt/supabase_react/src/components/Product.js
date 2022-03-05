@@ -50,6 +50,7 @@ function Product({product, setAktuelleStueckzahl, aktuelleStueckzahl}) {
             ])
             //window.location.reload()  // AJAX als alternative ???
             //console.log(aktuelleStueckzahl)
+            setAktuelleProduktStueckzahl(1)
         }
 
          async function upgradeCart() {
