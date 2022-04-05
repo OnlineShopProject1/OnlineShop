@@ -1,31 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import ShoppingCart from './ShoppingCart'
 
-function Header() {
 
 
+function Header({aktuelleStueckzahl}) {
+    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
 
@@ -38,7 +19,7 @@ return (
         <Searchbar>
             <input placeholder='Shop durchsuchen'></input>
         </Searchbar>
-        <ShoppingCart />
+        <ShoppingCart aktuelleStueckzahl={aktuelleStueckzahl} />
         </Flexbox>
     </HeaderContainer>
 )

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Product from './Product'
 import { Supabase } from './../supabaseClient'
 
-function ProductLibrary () {
+function ProductLibrary ({setAktuelleStueckzahl, aktuelleStueckzahl}) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function ProductLibrary () {
 
     return (
         <Test>
-            {products.map(product => <Product product={product} key={product.id} />)}
+            {products.map(product => <Product product={product} key={product.id} setAktuelleStueckzahl={setAktuelleStueckzahl} aktuelleStueckzahl={aktuelleStueckzahl} />)}
         </Test>
     )
 }

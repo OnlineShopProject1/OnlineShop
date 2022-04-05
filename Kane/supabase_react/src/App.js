@@ -1,7 +1,7 @@
 //import './App.css';
 import { supabase } from './supabaseClient'
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
 import Header from './components/Header'
@@ -14,15 +14,43 @@ import { Supabase } from './supabaseClient'
 
 import { AppContextProvider } from './appContext'
 
+
 function App() {
+  const [aktuelleStueckzahl, setAktuelleStueckzahl] = useState()
+    
+   
+
+    useEffect(() => {
+        async function readSumme () {
+            let Gesamtsumme = 0
+    
+            const { data, error } = await Supabase
+            .from('Einkaufswagen')
+            .select('Bestellanzahl')
+    
+            data.map((todo) => (Gesamtsumme = Gesamtsumme + parseInt(todo.Bestellanzahl)))
+            
+            
+            setAktuelleStueckzahl(Gesamtsumme)
+            
+        }readSumme()
+       
+      
+        
+      }, [aktuelleStueckzahl])
+
+
+
+
+
 
   
   return (
     <AppContextProvider>
       <AppContainer>
-        <Header />
+        <Header aktuelleStueckzahl={aktuelleStueckzahl} />
         <Category />
-        <Main />
+        <Main setAktuelleStueckzahl={setAktuelleStueckzahl} aktuelleStueckzahl={aktuelleStueckzahl} />
         <Footer />
       </AppContainer>
     </AppContextProvider>
