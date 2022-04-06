@@ -10,6 +10,8 @@ import Footer from './components/Footer'
 import Category from './components/Category'
 import { Supabase } from './supabaseClient'
 
+import { createMessenger } from '@userlike/messenger'
+
 
 
 import { AppContextProvider } from './appContext'

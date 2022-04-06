@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { AiFillYoutube, AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 import { FaPinterestSquare } from 'react-icons/fa';
 
+import { v1 } from "@userlike/messenger";
+
 const openURL = "www.google.de"
 
 function Footer() {
