@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { AiFillYoutube, AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 import { FaPinterestSquare } from 'react-icons/fa';
 
-import { v1 } from "@userlike/messenger";
-
 const openURL = "www.google.de"
 
 function Footer() {
@@ -33,6 +31,7 @@ function Footer() {
                 <Instagram>
                     <AiFillInstagram onClick={() => {window.location.href="https://www.instagram.com/yanas_knotart/"}} />
                 </Instagram>
+            <createApi />
             </SocialMedia>
         </FooterContainer>
     )
@@ -52,7 +51,7 @@ function Footer() {
     const Links = styled.div`
         color: black;
         justify-content: left;
-        margin-left: 20px;
+        margin-left: 110px;
         margin-right: auto;
         margin-top: 30px;
         margin-bottom: 30px;
